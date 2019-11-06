@@ -1,0 +1,364 @@
+.formthem{
+	margin: 30px 10px 200px 10px;
+}
+.card{
+	padding: 50px;
+}	
+/*input,textarea{
+	border: 1px solid white;
+}*/
+
+.tks1{
+	position: absolute;
+	top: 350px;
+	left: 100px;
+}
+.tks2{
+position: absolute;
+	bottom: -50px;
+	right: 170px;
+	z-index: 1
+}
+
+#grand img{
+	height: 50px;
+}
+
+.card{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+   transition: 0.3s;
+   min-width: 8	0%;
+   border-radius: 10px;
+   background-color: white;
+   margin-top: -50px;
+   margin-bottom: 80px;
+}
+
+.card-body{
+	padding: 40px;
+}
+.card-title{
+	padding: 50px;
+	text-align: center;
+}
+.card-content{
+	padding: 26px;
+}
+
+.bgcolor{
+	background-color: #DFDDDD;
+}
+
+
+.timeline h4{
+	color: #FD025B;
+	float: left;
+}
+.timeline{
+	margin-top: 80px;
+	margin-bottom: 100px;
+	/*border: 1px solid;*/
+	width: 100%;
+}
+.gh{
+	position: relative;
+	top: -90px;
+	left:-21px;
+}
+.tt{
+	position: relative;
+	top: -90px;
+	left: 275px;
+}
+.xn{
+	position: relative;
+	top: -90px;
+	left: 578px;
+}
+.tc{
+	position: relative;
+	top: -90px;
+	left: 880px;
+}
+/* Giỏ hàng*/
+.timeline .col1{
+	width: 33.3%;
+	border-top: 8px solid white;
+	float: left;
+}
+.timeline .col2{
+	width: 33.3%;
+	border-top: 8px solid white;
+	float: left;
+}
+.timeline .col3{
+	width: 33.3%;
+	border-top: 8px solid white;
+	float: left;
+}
+
+.btn1{
+	background-color: white;
+	width: 32px;
+	height: 32px;
+	border:10px solid #FD025B;
+	border-radius: 50%;
+	position: relative;
+	top: -30px;
+	left: 0;
+}
+.btn2{
+	background-color: white;
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	position: relative;
+	top: -20px;
+	left: 340px;
+}
+.btn3{
+	background-color: white;
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	position: relative;
+	top: -20px;
+	left: 680px;
+}
+.btn4{
+	background-color: white;
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	position: relative;
+	top: -20px;
+	left: 1040px;
+}
+/* Thông tin */
+.timeline .col11{
+	width: 33.3%;
+	border-top: 8px solid #FD025B;
+	float: left;
+}
+.timeline .col22{
+	width: 33.3%;
+	border-top: 8px solid white;
+	float: left;
+}
+.timeline .col33{
+	width: 33.3%;
+	border-top: 8px solid white;
+	float: left;
+}
+
+.btn11{
+	background-color: white;
+	width: 32px;
+	height: 32px;
+	border:10px solid #FD025B;
+	border-radius: 50%;
+	position: relative;
+	top: -30px;
+	left: 0;
+}
+.btn22{
+	background-color: white;
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	position: relative;
+	top: -30px;
+	left: 340px;
+	border:10px solid #FD025B;
+}
+.btn33{
+	background-color: white;
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	position: relative;
+	top: -20px;
+	left: 680px;
+}
+.btn44{
+	background-color: white;
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	position: relative;
+	top: -20px;
+	left: 1040px;
+}
+/* Xác nhận */
+.timeline .col111{
+	width: 33.3%;
+	border-top: 8px solid #FD025B;
+	float: left;
+}
+.timeline .col222{
+	width: 33.3%;
+	border-top: 8px solid #FD025B;
+	float: left;
+}
+.timeline .col333{
+	width: 33.3%;
+	border-top: 8px solid white;
+	float: left;
+}
+
+.btn111{
+	background-color: white;
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	position: relative;
+	top: -30px;
+	border:10px solid #FD025B;
+	left: 0;
+}
+.btn222{
+	background-color: white;
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	position: relative;
+	top: -30px;
+	border:10px solid #FD025B;
+	left: 340px;
+}
+.btn333{
+	background-color: white;
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	position: relative;
+	top: -30px;
+	border:10px solid #FD025B;
+	left: 680px;
+}
+.btn444{
+	background-color: white;
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	position: relative;
+	top: -20px;
+	left: 1040px;
+}
+/* Thành công */
+.timeline .col1111{
+	width: 33.3%;
+	border-top: 8px solid #FD025B;
+	float: left;
+}
+.timeline .col2222{
+	width: 33.3%;
+	border-top: 8px solid #FD025B;
+	float: left;
+}
+.timeline .col3333{
+	width: 33.3%;
+	border-top: 8px solid #FD025B;
+	float: left;
+}
+
+.btn1111{
+	background-color: white;
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	position: relative;
+	top: -20px;
+	border:10px solid #FD025B;
+	left: 0;
+}
+.btn2222{
+	background-color: white;
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	position: relative;
+	top: -20px;
+	border:10px solid #FD025B;
+	left: 340px;
+}
+.btn3333{
+	background-color: white;
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	position: relative;
+	top: -20px;
+	border:10px solid #FD025B;
+	left: 680px;
+}
+.btn4444{
+	background-color: white;
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	position: relative;
+	top: -20px;
+	border:10px solid #FD025B;
+	left: 1040px;
+}
+.trang button{
+	background-color: red;
+	padding: 12px;
+	border-radius: 7px;
+	color: white;
+	box-shadow: 4px 8px black;
+}
+.trang button:hover{
+	background-color: white;
+	border-radius: 7px ;
+	border: 1px solid red;
+	color: red;
+	box-shadow: 4px 8px black;
+}
+
+
+
+th,td{
+	text-align: center;
+}
+
+table .btn-delete{
+	background-color: #F85D5D;
+	padding: 7px;
+	margin-top: 100px;
+	border-radius: 13px;
+	color: white;
+	border: 1px solid white;
+}
+table .btn-delete:hover{
+	background-color: white;
+	color: #F85D5D;
+	border: 1px solid #F85D5D;
+}
+
+.btn-goback{
+	background-color: green;
+	color: white;
+	padding: 10px;
+	border-radius: 20px;
+	width: 100px;
+	height: 50px;
+	font-size: 18px;
+}
+
+.btn-goback a{
+	color: white;
+	font-size: 18px;
+	display: block;
+}
+
+.btn-goback a:hover{
+	color: black;
+	
+}
+.btn-goback:hover{
+	background-color: white;
+	color: black;
+	border: 1px solid black;
+}
