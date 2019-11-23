@@ -19,9 +19,17 @@ Trang chủ
 				    	<label for="email">Giá sản phẩm</label>
 				    	<input type="text" class="form-control" name="price">
 				  </div>
-				  <div class="form-group">
+				  <!-- <div class="form-group">
 				    	<label for="email">Giá khuyến mãi</label>
 				    	<input type="text" class="form-control" name="giakhuyenmai">
+				  </div> -->
+				  <div class="form-group">
+				    	<label for="email">Xuất xứ</label>
+				    	<input type="text" class="form-control" name="xuatxu">
+				  </div>
+				  <div class="form-group">
+				    	<label for="email">Dung tích</label>
+				    	<input type="text" class="form-control" name="dungtich">
 				  </div>
 				  <div class="form-group">
 				    	<label for="email">Số lượng sản phẩm</label>

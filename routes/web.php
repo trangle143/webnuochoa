@@ -13,7 +13,9 @@
 
 Route::get('/', 'TrangchuController@index')->name('index');
 
-
+Route::get('test', function(){
+	return view('test');
+});
  // Route::get('admin/dangnhap','UserController@getdangnhapAdmin');
  // Route::post('admin/dangnhap','UserController@postdangnhapAdmin');
 
@@ -48,6 +50,10 @@ Route::get('giohang',function()
 {
 	return view('frontend.giohang.giohang');
 });
+
+Route::get('plus/{id}', 'CartController@plus')->name('plus');
+Route::get('minus/{id}', 'CartController@minus')->name('minus');
+
 Route::get('thongtin',function()
 {
 	return view('frontend.giohang.thongtin');
@@ -69,6 +75,9 @@ Route::post('cart-add', 'CartController@add')->name('cart.add');
 Route::post('cart-clear', 'CartController@clear')->name('cart.clear');
 Route::post('cart-remove', 'CartController@remove')->name('cart.remove');
 
+Route::get('/checkout/{amount}','CartController@checkout')->name('cart.checkout');
+Route::post('charge','CartController@charge')->name('cart.charge');
+
 Route::post('add-customer', 'CustomerController@add')->name('custom.add');
 Route::post('add-bill', 'CustomerController@bill')->name('bill.add');
 
@@ -80,3 +89,18 @@ Route::get('search', 'SearchController@getSearch');
 Route::post('search/name', 'SearchController@getSearchAjax')->name('search');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('like','SothichController@index')->middleware('auth')->name('like');
+
+Route::post('binhluan', 'SanphamController@binhluan')->name('binhluan');
+
+
+Route::get('thanhtoan',function()
+{
+	return view('frontend.phuongthuc.thanhtoan');
+});
+
+// Route::post('cart-add', 'CartController@add')->name('cart.add');
+// Route::post('cart-clear', 'CartController@clear')->name('cart.clear');
+// Route::post('cart-remove', 'CartController@remove')->name('cart.remove');
+

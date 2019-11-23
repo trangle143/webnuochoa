@@ -466,11 +466,12 @@ Trang chủ
                                 <ul class="product-list owl-carousel"  data-dots="false" data-loop="true" data-nav = "true" data-margin = "0" data-autoplayTimeout="1000" data-autoplayHoverPause = "true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}'>
                                     @foreach($l->thuonghieu as $th)
                                     @foreach($th->sanpham as $sp)
+                                    
                                     <li>
                                         <div class="left-block">
-                                            <a href="detail.html"><img class="img-responsive" alt="product" src="http://localhost/nuochoa/public/image/nuochoa_nu/{{ $sp->hinhanh }}" /></a>
+                                            <a href="{{ route('show.sanpham',$sp->id) }}"><img class="img-responsive" alt="product" src="http://localhost/nuochoa/public/image/nuochoa_nu/{{ $sp->hinhanh }}" /></a>
                                             <div class="quick-view">
-                                                    <a title="Add to my wishlist" class="heart" href="#"></a>
+                                                    <a title="Add to my wishlist" class="heart" href="{{ url('like',$sp->id) }}"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
                                                     <a title="Quick view" class="search" href="#"></a>
                                             </div>
@@ -485,8 +486,15 @@ Trang chủ
                                         <div class="right-block">
                                             <h5 class="product-name"><a href="detail.html">{{ $sp->ten }}</a></h5>
                                             <div class="content_price">
-                                                <span class="price product-price">{{ $sp->giakhuyenmai }}</span>
+                                                <?php $km = ($sp->giakhuyenmai/100)*$sp->price ?>
+                                                <?php $tongcong = $sp->price - $km ?>
+                                                <span class="price product-price">{{ $tongcong }}</span>
+                                                @if($tongcong === $sp->price)
+                                                <span></span>
+                                                @else
                                                 <span class="price old-price">{{ $sp->price }}</span>
+
+                                                @endif
                                             </div>
                                             <div class="product-star">
                                                 <i class="fa fa-star"></i>
@@ -499,6 +507,7 @@ Trang chủ
                                     </li>
                                     @endforeach
                                     @endforeach
+                                    
 
                                
 

@@ -16,7 +16,7 @@ Trang chủ
                   <div  class="product-list"  data-margin="20">
                     <li style=" list-style-type: none;">
                         <div class="left-block">
-                            <a href="detail.html">
+                            <a href="{{ route('show.sanpham',$sp->id) }}">
                                 <img class="img-responsive" alt="product" src="<?php echo asset("image/nuochoa_nu/$sp->hinhanh") ?>" />
                             </a>
                             <div class="quick-view">
@@ -31,8 +31,10 @@ Trang chủ
                                 <button type="submit"><a title="Add to Cart">Add to Cart</a></button>
                             </div>
                             </form>
+                            <?php $km = ($sp->giakhuyenmai/100)*$sp->price ?>
+                            <?php $tongcong = $sp->price - $km ?>
                             <div class="group-price">
-                                @if($sp->giakhuyenmai == $sp->price)) 
+                                @if($tongcong === $sp->price)
                                     
                                 @else   
                                      <span class="product-sale">Sale</span>
@@ -43,9 +45,9 @@ Trang chủ
                         <div class="right-block">
                             <h5 class="product-name"><a href="{{ route('show.sanpham',$sp->id) }}">{{ $sp->ten }}</a></h5>
                             <div class="content_price">
-                                <span class="price product-price">{{ number_format($sp->giakhuyenmai) }}</span>
-                                @if($sp->giakhuyenmai == $sp->price)
-                                    
+                                <span class="price product-price">{{ number_format($tongcong) }}</span>
+                                @if($tongcong === $sp->price)
+                                    <span>  </span>
                                 @else   
                                     <span class="price old-price">{{ number_format($sp->price) }}</span>
                                 @endif

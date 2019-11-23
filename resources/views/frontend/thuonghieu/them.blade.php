@@ -10,7 +10,7 @@ Them thuong hieu
             <div class="col-md-4 slider-left"></div>
             <div class="col-md-8 header-top-right ">
             	<div class="formthem row">
-            		<form action="{{ url('thuonghieu/them') }}" method="POST">
+            		<form action="{{ url('thuonghieu/them') }}" method="POST" enctype="multipart/form-data">
 
 					  <div class="modal-dialog modal-lg" role="document">
 					    <div class="modal-content">

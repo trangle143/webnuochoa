@@ -14,14 +14,14 @@ Trang chủ
 		<div class="card-content">
 			<table class="table table-bordered">
 				<tr>
-					<th>Id</th>
-					<th>Tên</th>
-					<th>Giới tính</th>
-					<th>Địa chỉ</th>
-					<th>Sđt</th>
-					<th>Ghi chú</th>
-					<th>Tình trạng</th>
-					<th>Chi tiết</th>
+					<th><strong>Id</strong></th>
+					<th><strong>Tên</strong></th>
+					<th><strong>Giới tính</strong></th>
+					<th><strong>Địa chỉ</strong></th>
+					<th><strong>Sđt</strong></th>
+					<th><strong>Ghi chú</strong></th>
+					<th><strong>Tình trạng</strong></th>
+					<th><strong>Chi tiết</strong></th>
 				</tr>
 
 				@foreach($khach as $k)
@@ -40,13 +40,13 @@ Trang chủ
 					@else 
 					<td>Hoàn thành</td>
 					@endif
-					<td><a href="{{ url('quanli/chitiet',$dh->id) }}">Xem chi tiết</a></td>
+					<td><strong><u><a href="{{ url('quanli/chitiet',$dh->id) }}">Xem chi tiết</a></u></strong></td>
 				</tr>
 				@endforeach
 				@endforeach
 			</table>
 				<div>
-					<button type="button" class="pull-right btn btn-danger"><a  href="{{ route('index') }}" >Quay về trang chủ</a></button>
+					<button type="button" class="pull-right btn btn-info"><a  href="{{ route('index') }}" >Quay về trang chủ</a></button>
 				</div>
 		</div>
 	</div>

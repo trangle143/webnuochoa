@@ -44,7 +44,7 @@ Trang chủ
 				</div>
 			</div>
 		</div>
-
+		<div id="hoadon">
 		<div class="card-content">
 			<h4>ĐƠN ĐẶT HÀNG ONLINE</h4>
 		</div>
@@ -60,6 +60,9 @@ Trang chủ
 						</tr>
 						<tr>
 							<td>Họ tên: {{$ten}}</td>
+						</tr>
+						<tr>
+							<td>Giới tính: {{$gioitinh}}</td>
 						</tr>
 						<tr>
 							<td>Số điện thoại: {{$sdt}}</td>
@@ -90,7 +93,7 @@ Trang chủ
 					<td>Ghi chú: {{$ghichu}}</td>
 				</tr>
 				<tr>
-					<td>Thanh toán: Tiền mặt</td>
+					<td>Thanh toán: {{ $visa }}</td>
 				</tr>
 			</table>
 
@@ -107,7 +110,12 @@ Trang chủ
 					<th>Khuyến mãi</th>
 					<th>Thành tiền</th>
 				</tr>
+				<?php $tongkm=0 ?>
 				@foreach(Cart::getContent() as $sanpham)
+				<?php $km = ($sanpham->conditions/100)*$sanpham->price ?>
+				<?php $totalsl = $km*$sanpham->quantity ?>
+                <?php $tongcong = $sanpham->price - $km ?>
+				<?php $tongkm += $km ?>
 				<tr>
 					<td>
 						<form action="{{route('cart.remove')}}" method="POST">
@@ -116,23 +124,24 @@ Trang chủ
 							<button class="btn-delete" type="submit">Xóa</button>
 						</form>
 					</td>
-					<td><img height="170px" src='./image/nuochoa_nu/{{$sanpham["attributes"]["0"]}}' alt=""></td>
-					<td>{{$sanpham->ten}}</td>
+					<td><img height="110px" src='./image/nuochoa_nu/{{$sanpham["attributes"]["0"]}}' alt=""></td>
+					<td>{{$sanpham->name}}</td>
 					<td>{{number_format($sanpham->price)}}</td>
 					<td>{{$sanpham->quantity}}</td>
-					<td></td>
-					<td>{{ number_format($sanpham->price * $sanpham->quantity) }}</td>
+					<td>{{ number_format($sanpham->price * $sanpham->quantity) }} (VND)</td>
+					<td>{{ number_format($km) }} (VND)</td>
 				</tr>
 				@endforeach
+				<?php $thanhtoan = Cart::getSubTotal()-$tongkm ?>
 				<tr>
 					<td colspan="4"></td>
 					<td colspan="2">Tổng tiền</td>
-					<td>{{ number_format (Cart::getSubTotal() )}}</td>
+					<td>{{ number_format (Cart::getSubTotal() ) }} (VND) </td>
 				</tr>
 				<tr>
 					<td colspan="4"></td>
 					<td colspan="2">Tổng khuyến mãi</td>
-					<td></td>
+					<td>{{ number_format ($tongkm)}} (VND)</td>
 				</tr>
 				<tr>
 					<td colspan="4" style="text-align: center;">
@@ -144,9 +153,10 @@ Trang chủ
 				</tr>
 				<tr>
 					<td colspan="6" style="text-align: right;"><b>Tổng thanh toán</b></td>
-					<td>690K	</td>
+					<td>{{ number_format ($thanhtoan)}} (VND)</td>
 				</tr>
 			</table>
+		</div>
 		</div>
 		<hr>
 		<div class="card-content">
@@ -158,8 +168,11 @@ Trang chủ
 							@csrf
 							<input type="hidden" name="id" value="{{$id}}">
 							<input type="hidden" name="ghichu" value="{{$ghichu}}">
+
 						<!-- <button class="btn-goback" onclick="javascript:history.go(-1)">Quay về</button> -->
-						<button type="submit" class="btn-goback" >Xác nhận</button>
+						<!-- <button type="submit" class="btn-goback" >Xác nhận</button> -->
+						<button class="btn btn-primary" onclick="print_ds()">In hóa đơn</button>
+						<button class="btn-goback" ><a href="{{route('cart.checkout',$thanhtoan)}}">Thanh toan</a></button>
 						</form>
 					</div>
 				</div>
@@ -168,4 +181,16 @@ Trang chủ
 	</div>
 </div>
 </div>
+@endsection
+@section('script')
+<script>
+	function print_ds()
+	{
+		var printContent = document.getElementById('hoadon').innerHTML;
+		var content = document.body.innerHTML;
+		document.body.innerHTML = printContent;
+		window.print();
+		document.body.innerHTML = content;
+	}
+</script>
 @endsection

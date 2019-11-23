@@ -65,7 +65,7 @@ Trang chủ
 				@endforeach
 				<tr>
 					<td colspan="5">Thành tiền</td>
-					<td>{{$donhang->tongtien}}</td>
+					<td>{{ number_format($donhang->tongtien) }} (VND)</td>
 				</tr>
 			</table>
 			<div >

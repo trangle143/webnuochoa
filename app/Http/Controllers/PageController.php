@@ -12,7 +12,7 @@ class PageController extends Controller
 {
 	public function donhang()
     {
-    	$khach = Khachhang::with('donhang')->get();
+    	$khach = Khachhang::with('donhang')->orderBy('id','desc')->get();
     	$chitiet = Chitietdonhang::all();
     	// dd($khach->toArray());
         return view('frontend.quanli.donhang',compact('khach','chitiet'));

@@ -17,6 +17,8 @@ Trang chủ
         <th>Tổng tiền</th>
         <th>Giá khuyến mãi</th>
         <th>Hình ảnh</th>
+        <th>Xuất xứ</th>
+        <th>Dung tích</th>
         <th>Số lượng</th>
         <th>Ngày tạo</th>
         <th>Sửa</th>
@@ -32,6 +34,8 @@ Trang chủ
         <td>{{ $sp->price }}</td>
         <td>{{ $sp->giakhuyenmai }}</td>
         <td><img style="width: 100px; height: 45px" src="<?php echo asset("image/nuochoa_nu/$sp->hinhanh") ?>" alt="{{$sp->hinhanh}}"></td>
+        <td>{{ $sp->xuatxu }}</td>
+        <td>{{ $sp->dungtich }}</td>
         <td>{{ $sp->soluong }}</td>
         <td>{{ $sp->ngaytao }}</td>
         <td><a href="{{ url('sanpham/sua',$sp->id) }}">Sửa</a></td>

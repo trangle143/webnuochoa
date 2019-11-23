@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Sanpham;
 use App\Loaisanpham;
 use App\Thuonghieu;
+use App\Binhluan;
+
 
 class SanphamController extends Controller
 {
@@ -21,16 +23,18 @@ class SanphamController extends Controller
     	return view('frontend.loai.loaisanpham', ['loai'=>$loai]);
     }
 
-    
+    // 
 
     public function sanpham($id)
     {
     	$sanpham = Sanpham::find($id);
-    	return view('frontend.trangcon.chitietsanpham', compact('sanpham'));
+        $binhluan = Binhluan::with('sanpham')->where('sanpham_id',$id)->get();
+    	return view('frontend.trangcon.chitietsanpham', compact('sanpham','binhluan'));
     }
 
+    // 
     public function quanli(){
-        $sanpham = Sanpham::with('thuonghieu')->get();
+        $sanpham = Sanpham::with('thuonghieu')->orderBy('id','desc')->get();
         return view('frontend.quanli.sanpham', ['sanpham'=>$sanpham]);
     }
 
@@ -46,9 +50,10 @@ class SanphamController extends Controller
         $sanpham->ten =$Request->ten;
         $sanpham->thuonghieu_id =$Request->thuonghieu_id;
         $sanpham->mota =$Request->mota;
-        $sanpham->tongtien =$Request->tongtien;
-        $sanpham->giakhuyenmai =$Request->giakhuyenmai;
+        $sanpham->price =$Request->price;
         $sanpham->soluong =$Request->soluong;
+        $sanpham->xuatxu =$Request->xuatxu;
+        $sanpham->dungtich =$Request->dungtich;
         if($Request->hasfile('hinhanh'))
         {
             $file = $Request->file('hinhanh');
@@ -64,9 +69,9 @@ class SanphamController extends Controller
         {
             $sanpham->hinhanh = "";
         }
-
+// dd($Request->all());
         $sanpham->save();
-        return back();
+        return back()->with('success','Thêm thành công!');
     }
 
     public function getSua($id)
@@ -82,8 +87,10 @@ class SanphamController extends Controller
         $sanpham->ten =$Request->ten;
         $sanpham->thuonghieu_id =$Request->thuonghieu_id;
         $sanpham->mota =$Request->mota;
-        $sanpham->tongtien =$Request->tongtien;
-        $sanpham->giakhuyenmai =$Request->giakhuyenmai;
+        $sanpham->price =$Request->price;
+        // $sanpham->giakhuyenmai =$Request->giakhuyenmai;
+        $sanpham->xuatxu= $Request->xuatxu;
+        $sanpham->dungtich= $Request->dungtich;
         $sanpham->soluong =$Request->soluong;
         if($Request->hasfile('hinhanh'))
         {
@@ -98,19 +105,23 @@ class SanphamController extends Controller
         }
 
         $sanpham->save();
-        return back();
+        return back()->with('success','Sửa thành công!');
     }
 
     public function getXoa($id){
         $sanpham = Sanpham::find($id);
         $sanpham->delete();
-        return back();
+        return back()->with('success','Xóa thành công!');;
     }
 
-   //public function giohang ()
-    //{
-        //$giohang = Giohang::find();
-        //return view('frontend.loai.giohang', compact('giohang'));
-    //}
+    public function binhluan(Request $Request)
+    {
+        $binhluan = new Binhluan;
+        $binhluan->sanpham_id = $Request->id;
+        $binhluan->user_id = Auth::user()->id;
+        $binhluan->noidung = $Request->noidung;
+        $binhluan->save();
+        return back()->with('message','Thêm bình luận thành công');
+    }
    
 }

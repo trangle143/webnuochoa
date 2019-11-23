@@ -14,7 +14,8 @@ class Khachhang extends Model
     	'gioitinh',
     	'diachi',
     	'sdt',
-    	'ghichu'
+    	'ghichu',
+        'thanhtoan'
     ];
 
     public function donhang(){

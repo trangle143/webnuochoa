@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 use App\Thuonghieu;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ThuonghieuController extends Controller
 {
     public function index()
     {
-        $thuonghieu = Thuonghieu::all();
+        $thuonghieu = Thuonghieu::orderBy('id','desc')->get();
         return view('frontend.thuonghieu.index', compact('thuonghieu'));
     }
     public function sanpham($id)
@@ -68,13 +69,13 @@ class ThuonghieuController extends Controller
         }
         
         $thuonghieu->save();
-        return back();
+        return back()->with('success','Sửa thành công!');
     }
 
     public function getXoa($id)
     {
         $thuonghieu = Thuonghieu::find($id);
         $thuonghieu->delete();
-        return back();
+        return back()->with('success','Xóa thành công!');
     }
 }

@@ -40,10 +40,16 @@ Trang chủ
 					<th>Sản phẩm</th>
 					<th>Đơn giá</th>
 					<th>Số lượng</th>
-					<th>Khuyến mãi</th>
 					<th>Thành tiền</th>
+					<th>Khuyến mãi</th>
 				</tr>
-				@foreach(Cart::getContent() as $sanpham)
+				<?php $tongkm=0 ?>
+				@foreach(Cart::getContent()->sortByDesc('id') as $sanpham)
+				<?php $km = ($sanpham->conditions/100)*$sanpham->price ?>
+				<?php $totalsl = $km*$sanpham->quantity ?>
+                <?php $tongcong = $sanpham->price - $km ?>
+				<?php $tongkm += $km*$sanpham->quantity ?>
+				
 				<tr>
 					<td>
 						<form action="{{route('cart.remove')}}" method="POST">
@@ -53,22 +59,41 @@ Trang chủ
 						</form>
 					</td>
 					<td><img height="170px" src='./image/nuochoa_nu/{{$sanpham["attributes"]["0"]}}' alt=""></td>
-					<td>{{$sanpham->ten}}</td>
+					<td>{{$sanpham->name}}</td>
 					<td>{{number_format($sanpham->price)}}</td>
-					<td>{{$sanpham->quantity}}</td>
-					<td></td>
-					<td>{{ number_format($sanpham->price * $sanpham->quantity) }}</td>
+					<td><div class="input-group">
+
+						<span class="input-group-btn"> 
+				          <a href="{{ route('minus',$sanpham->id) }}" class="btn btn-sm btn-danger">
+				          	<span class="glyphicon glyphicon-minus"></span></a>
+				     		
+				  		</span> 
+
+				      	<input class=" input-number" value="{{$sanpham->quantity}}" min="1" max="10" type="text" style="text-align: center;">
+
+				      	<span class="input-group-btn">
+				      		<a href="{{ route('plus',$sanpham->id) }}" class="btn btn-sm btn-info">
+				      		<span class="glyphicon glyphicon-plus"></span></a>
+				      	</span> 
+				      			
+
+				     </div> 
+				 	</td>
+
+					<td>{{ number_format($sanpham->price * $sanpham->quantity) }} (VND)</td>
+					<td>{{ number_format($km * $sanpham->quantity) }}(VND)</td>
 				</tr>
 				@endforeach
+				<?php $thanhtoan = Cart::getSubTotal()-$tongkm ?>
 				<tr>
 					<td colspan="4"></td>
 					<td colspan="2">Tổng tiền</td>
-					<td>{{ number_format (Cart::getSubTotal() )}}</td>
+					<td>{{ number_format (Cart::getSubTotal() )}} (VND)</td>
 				</tr>
 				<tr>
 					<td colspan="4"></td>
 					<td colspan="2">Tổng khuyến mãi</td>
-					<td></td>
+					<td>{{ number_format ($tongkm)}} (VND)</td>
 				</tr>
 				<tr>
 					<td colspan="4" style="text-align: center;">
@@ -80,7 +105,7 @@ Trang chủ
 				</tr>
 				<tr>
 					<td colspan="6" style="text-align: right;"><b>Tổng thanh toán</b></td>
-					<td>690K	</td>
+					<td>{{ number_format ($thanhtoan)}} (VND)</td>
 				</tr>
 			</table>
 		</div>
@@ -103,9 +128,9 @@ Trang chủ
 		</div>
 	</div>
 </div>
-
 </div>
 @endsection
+@section('script')
 
-
+@endsection
 

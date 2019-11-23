@@ -42,8 +42,8 @@ Trang chủ
 		    		<strong>Đơn hàng của quý khách đã gởi thành công!</strong>
 		    		<p>Chúng tôi sẽ liên lạc với quý khách trong thời gian sớm nhất.</p>
 	  			</div>
-	  			<div class="btn btn-primary"><a href="{{ route('index') }}">Về Trang Chủ</div>
-	  		
+	  			<div class="btn btn-primary"><a href="{{ route('index') }}">Về Trang Chủ</a></div>
+	  			
 
 			</div>
 			<div class="col-md-3">

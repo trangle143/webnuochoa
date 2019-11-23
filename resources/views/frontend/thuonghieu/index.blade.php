@@ -22,7 +22,7 @@ Trang chủ
       @foreach($thuonghieu as $th)
       <tr>
         <td>{{ $th->ten }}</td>
-        <td><img src="<?php echo asset('image/nuochoa_nu/$th["hinhanh"]') ?>" alt=""> </td>
+        <td><img src="<?php echo asset("image/nuochoa_nu/$th->hinhanh") ?>" alt="{{$th->hinhanh}}" style="width:60px"></td>
         <td>{{ $th->loaisanpham->ten }}</td>
         <td><a href="{{ route('thuonghieu.sua',$th->id) }}">Sửa</a></td>
         <td><a href="{{ route('thuonghieu.xoa',$th->id) }}">Xóa</a></td>

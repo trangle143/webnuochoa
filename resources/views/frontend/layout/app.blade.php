@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('theme/assets/css/style.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('theme/assets/css/responsive.css')}}" />
     <link rel="stylesheet" href="{{asset('build.css')}}">
+    @yield('style')
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Shop Nước Hoa</title>
 </head>
@@ -53,6 +54,6 @@
 <script type="text/javascript" src="{{asset('theme/assets/lib/fancyBox/jquery.fancybox.js')}}"></script>
 <script type="text/javascript" src="{{asset('theme/assets/lib/jquery.elevatezoom.js')}}"></script>
 <script type="text/javascript" src="{{asset('theme/assets/js/theme-script.js')}}"></script>
-
+@yield('script')
 </body>
 </html>

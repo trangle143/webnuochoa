@@ -18,7 +18,9 @@ class CustomerController extends Controller
     	$sdt = $Request->sdt;
     	$diachi = $Request->diachi;
     	$ghichu = $Request->ghichu;
-    	return view('frontend.giohang.xacnhan', compact('id','ten','gioitinh','sdt','diachi','ghichu'));
+        $visa = $Request->visa;
+        // dd($Request->toArray());
+    	return view('frontend.giohang.xacnhan', compact('id','ten','gioitinh','sdt','diachi','ghichu','visa'));
     }
 
     public function bill(Request $Request){
@@ -27,6 +29,7 @@ class CustomerController extends Controller
     		$donhang->ngaydathang = date('Y-m-d');
     		$donhang->tongtien = Cart::getSubTotal();
     		$donhang->ghichu = $Request->ghichu;
+            // $donhang->thanhtoan = $Request->thanhtoan;
     		$donhang->save();
 
     		$cart= Cart::getContent();

@@ -68,7 +68,7 @@
                 </a>
                 <div class="cart-block">
                     <div class="cart-block-content">
-                        <h5 class="cart-title"><a href="">Đi đến giỏ hàng</a></h5>
+                        <h5 class="cart-title"><a href="{{url('giohang')}}">Đi đến giỏ hàng</a></h5>
                     </div>
                 </div>
             </div>
@@ -220,73 +220,25 @@
                                     <li class="dropdown">
                                         <a href="category.html" class="dropdown-toggle" data-toggle="dropdown">Sản phẩm mới</a>
                                         <ul class="dropdown-menu mega_dropdown" role="menu" style="width: 830px;">
+                                            @foreach($loai as $l)
                                             <li class="block-container col-sm-3">
                                                 <ul class="block">
                                                     <li class="img_container">
                                                         <a href="#">
-                                                            <img class="img-responsive" src="{{asset('theme/assets/data/men.png')}}" alt="sport">
+                    <img class="img-responsive" src="<?php echo asset("image/nuochoa_nu/$l->hinhanh") ?>" alt="sport">
                                                         </a>
                                                     </li>
                                                     <li class="link_container group_header">
-                                                        <a href="#">Nước hoa nam</a>
+                                                        <a href="#">{{ $l->ten }}</a>
                                                     </li>
-                                                    <li class="link_container"><a href="#">Chanel boy</a></li>
-                                                    <li class="link_container"><a href="#">Polo</a></li>
-                                                    <li class="link_container"><a href="#">Dior Homme</a></li>
-                                                    <li class="link_container"><a href="#">Very sexy boy</a></li>
-                                                    <li class="link_container"><a href="#">Ck</a></li>
+                                                    <?php $i=0 ?>
+                                                    @foreach($l->sanpham->sortByDesc('id') as $sp)
+                                                    <li class="link_container"><a href="#">{{$sp->ten}}</a></li>
+                                                    <?php if(++$i==4) break; ?>
+                                                    @endforeach
                                                 </ul>
                                             </li>
-                                             <li class="block-container col-sm-3">
-                                                <ul class="block">
-                                                    <li class="img_container">
-                                                        <a href="#">
-                                                            <img class="img-responsive" src="{{asset('theme/assets/data/women.png')}}" alt="sport">
-                                                        </a>
-                                                    </li>
-                                                    <li class="link_container group_header">
-                                                        <a href="#">Nước hoa nữ</a>
-                                                    </li>
-                                                    <li class="link_container"><a href="#">Gucci</a></li>
-                                                    <li class="link_container"><a href="#">Dior jadore</a></li>
-                                                    <li class="link_container"><a href="#">Chanel no19</a></li>
-                                                    <li class="link_container"><a href="#">Very sexy</a></li>
-                                                    <li class="link_container"><a href="#">Good girl</a></li>
-                                                </ul>
-                                            </li>
-                                             <li class="block-container col-sm-3">
-                                                <ul class="block">
-                                                    <li class="img_container">
-                                                        <a href="#">
-                                                            <img class="img-responsive" src="{{asset('theme/assets/data/kid.png')}}" alt="sport">
-                                                        </a>
-                                                    </li>
-                                                    <li class="link_container group_header">
-                                                        <a href="#">Nước hoa baby</a>
-                                                    </li>
-                                                    <li class="link_container"><a href="#">Mickey</a></li>
-                                                    <li class="link_container"><a href="#">Princess</a></li>
-                                                    <li class="link_container"><a href="#">TheSmurfsVanity</a></li>
-                                                    <li class="link_container"><a href="#">TheSmurfsPapa</a></li>
-                                                    <li class="link_container"><a href="#">Barbie</a></li>
-                                                </ul>
-                                            </li>
-                                             <li class="block-container col-sm-3">
-                                                <ul class="block">
-                                                    <li class="img_container">
-                                                        <a href="#">
-                                                            <img class="img-responsive" src="{{asset('theme/assets/data/trending.png')}}" alt="sport">
-                                                        </a>
-                                                    </li>
-                                                    <li class="link_container group_header">
-                                                        <a href="#">Nước hoa Unisex</a>
-                                                    </li>
-                                                    <li class="link_container"><a href="#">CK one (Unisex)</a></li>
-                                                    <li class="link_container"><a href="#">CK be</a></li>
-                                                    <li class="link_container"><a href="#">Chergui</a></li>
-                                                    <li class="link_container"><a href="#">Gris clair</a></li>
-                                                </ul>
-                                            </li>
+                                            @endforeach
                                         </ul>
                                     </li>
                                     <li class="dropdown">

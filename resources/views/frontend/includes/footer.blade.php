@@ -18,47 +18,44 @@
                 <div class="col-md-6">
                     <div class="row">
                         <div class="col-sm-4">
-                            <div class="introduce-title">Company</div>
+                            <div class="introduce-title">Giới Thiệu</div>
                             <ul id="introduce-company"  class="introduce-list">
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Testimonials</a></li>
-                                <li><a href="#">Affiliate Program</a></li>
-                                <li><a href="#">Terms & Conditions</a></li>
-                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Giới thiệu về TGNH</a></li>
+                                <li><a href="#">Quan điểm kinh doanh</a></li>
+                                <li><a href="#">Bản quyền & Sở hữu </a></li>
                             </ul>
                         </div>
                         <div class="col-sm-4">
-                            <div class="introduce-title">My Account</div>
+                            <div class="introduce-title">Điều Lệ Công Ty</div>
                             <ul id = "introduce-Account" class="introduce-list">
-                                <li><a href="#">My Order</a></li>
-                                <li><a href="#">My Wishlist</a></li>
-                                <li><a href="#">My Credit Slip</a></li>
-                                <li><a href="#">My Addresses</a></li>
-                                <li><a href="#">My Personal In</a></li>
+                                <li><a href="#">Điều khoản sử dụng</a></li>
+                                <li><a href="#">Chính sách bảo mật thông tin</a></li>
+                                <li><a href="#">Chính sách giao hàng</a></li>
+                                <li><a href="#">Chính sách đổi trả</a></li>
                             </ul>
                         </div>
                         <div class="col-sm-4">
-                            <div class="introduce-title">Support</div>
+                            <div class="introduce-title">Trợ Giúp</div>
                             <ul id = "introduce-support"  class="introduce-list">
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Testimonials</a></li>
-                                <li><a href="#">Affiliate Program</a></li>
-                                <li><a href="#">Terms & Conditions</a></li>
-                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Hướng dẫn sử dụng nước hoa</a></li>
+                                <li><a href="#">Hướng dẫn mua hàng</a></li>
+                                <li><a href="#">Phương thức thanh toán</a></li>
+                                <li><a href="#">Gói quà miễn phí</a></li>
+                               
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div id="contact-box">
-                        <div class="introduce-title">Newsletter</div>
+                        <div class="introduce-title">Bản Tin</div>
                         <div class="input-group" id="mail-box">
-                          <input type="text" placeholder="Your Email Address"/>
+                          <input type="text" placeholder="email"/>
                           <span class="input-group-btn">
                             <button class="btn btn-default" type="button">OK</button>
                           </span>
                         </div><!-- /input-group -->
-                        <div class="introduce-title">Let's Socialize</div>
+                        <div class="introduce-title">Mạng xã hội</div>
                         <div class="social-link">
                             <a href="#"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-pinterest-p"></i></a>
@@ -75,7 +72,7 @@
             <div id="trademark-box" class="row">
                 <div class="col-sm-12">
                     <ul id="trademark-list">
-                        <li id="payment-methods">Accepted Payment Methods</li>
+                        <li id="payment-methods">Các phương pháp thanh toán</li>
                         <li>
                             <a href="#"><img src="{{asset('theme/assets/data/trademark-ups.jpg')}}"  alt="ups"/></a>
                         </li>
